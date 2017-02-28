@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<article ng-app="shop" ng-controller="ShopController as controller">
+  <h1 ng-if="controller.message">{{controller.message}}</h1>
+  <section>
+    <p>Currently available in our shop:</p>
+    <div ng-repeat="stockItem in controller.stockItems">
+      {{stockItem.product.name}}: {{stockItem.quantity}} left
+    </div>
+  </section>
+
+  <section>
+    <p>Your shopping:</p>
+    <form>
+      <div ng-repeat="product in controller.products">
+        <label>{{product.name}}
+          <input name="product[product.id]" type="number" min="0" ng-model="controller.newOrder[product.id]">
+        </label>
+      </div>
+      <button ng-click="controller.addOrder()">Buy</button>
+    </form>
+  </section>
+  <section>
+    <p>Your orders:</p>
+    <div ng-repeat="order in controller.orders">
+      <h1>Order #{{order.id}}</h1>
+      <div ng-repeat="order_item in order.order_items">
+        {{order_item.product.name}} {{order_item.quantity}}
+      </div>
+    </div>
+  </section>
+  <section>
+       <button ng-click="controller.reset()">Reset</button>
+  </section>
+</article>
+<script src="/js/angular.min.js"></script>
+<script src="/js/shop_app.js"></script>
+<script src="/js/shop_controller.js"></script>
+<script src="/js/stock_item_service.js"></script>
+<script src="/js/order_service.js"></script>
+<script src="/js/product_service.js"></script>
+</body>
+</html>
