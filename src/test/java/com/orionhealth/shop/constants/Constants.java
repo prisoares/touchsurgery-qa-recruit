@@ -18,6 +18,8 @@ public interface Constants {
 
 	String STOCK_ITEM_B_XPATH = "/html/body/article/section[1]/div[2]";
 
+	String HISTORY_ORDERS_XPATH = "/html/body/article/section[3]/div";
+	
 	String HISTORY_ORDER_FOR_ONLY_ITEM_A_XPATH = "/html/body/article/section[3]/div[ORDER]/div[1]";
 	
 	String HISTORY_ORDER_FOR_ONLY_ITEM_B_XPATH = "/html/body/article/section[3]/div[ORDER]/div[1]";

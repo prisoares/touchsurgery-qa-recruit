@@ -11,19 +11,18 @@ import com.orionhealth.shop.utils.WaitUtils;
 public class Shop {
 
 	private final WebDriver driver;
-	private WaitUtils waitUtils;
-
 	public Shop() {
 		this.driver = TestContext.getDriver();
-		waitUtils = new WaitUtils();
 	}
 
 	public void navigateToShop() {
 		driver.navigate().to(System.getProperty("shop.host", Constants.URL));
+		WaitUtils.waitUntilShopIsLoaded(driver);
 	}
 
 	public void refreshTheScreen() {
 		driver.navigate().refresh();
+		WaitUtils.waitUntilPageIsRefreshed();
 	}
 
 	public void setQuantityItemA(String quantity) {
@@ -40,7 +39,7 @@ public class Shop {
 
 	public void clickBuyButton() {
 		driver.findElement(By.xpath(Constants.BUY_BUTTON_XPATH)).click();
-		waitUtils.waitUntilPurchaseListed(this.driver, By.xpath(Constants.BUY_BUTTON_XPATH));
+		WaitUtils.waitUntilPurchaseListed(this.driver, By.xpath(Constants.HISTORY_ORDERS_XPATH));
 	}
 
 	public String getMessage() {
@@ -76,7 +75,7 @@ public class Shop {
 
 	public void clickResetButton() {
 		driver.findElement(By.xpath(Constants.RESET_BUTTON_XPATH)).click();
-		waitUtils.waitUntilPurchaseListed(this.driver, By.xpath(Constants.RESET_BUTTON_XPATH));
+		WaitUtils.waitUntilPurchaseCleaned(driver, By.xpath(Constants.HISTORY_ORDERS_XPATH));
 	}
 
 	private void clearField(WebElement webElement) {

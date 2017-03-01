@@ -21,15 +21,15 @@ To run all the tests you need to run the following command in your terminal `mvn
 Or, you can also Run As Junit the Runner class from $root/src/test/java/com/orionhealth/shop/RunCukesTest.java 
 
 #Running @Regression Tests
-The tag @regression is used to run only regression test scnearios from the project.
+The tag @regression is used to run only regression test scenarios from the project.
 To run all @regression tests you need to Run As Junit the Runner class from $root/src/test/java/com/orionhealth/shop/RunCukesRegressionTest.java
 
 #Running @Now Tests
-The tag @now is used to run specific test scnearios from the project to facilitate the development.
+The tag @now is used to run specific test scenarios from the project to facilitate the development.
 To run all @regression tests you need to Run As Junit the Runner class from $root/src/test/java/com/orionhealth/shop/RunCukesNowTest.java
 
 #Running @Smoke Tests
-The tag @smoke is used to run only smoke test scnearios from the project.
+The tag @smoke is used to run only smoke test scenarios from the project.
 To run all @smoke tests you need to Run As Junit the Runner class from $root/src/test/java/com/orionhealth/shop/RunCukesSmokeTest.java
 
 #Reseting the project
@@ -44,4 +44,23 @@ To change this URL you need to use an environment variable named as "shop.host" 
 The WaitUtils.java still needs to be completed.
 	
 #Expanding this framework
-To expand this project you need to create more test scenarios into feature-files.
+To expand this project you can create new test scenarios into the Shop.feature file already created in $root/src/test/resources/com/orionhealth/shop/ or, you can create new feature-files for each new system's functionality, or also, you can expand this project just creating new validations. 
+
+If you have to expand creating new scenarios, use the structure below:
+   - $feature file = $root/src/test/resources/com/orionhealth/shop -> Here you need to create your scenario in a feature-file (To learn how to use BDD to write scenarios you can use https://cucumber.io/training)
+   - $Shop class =  $root/src/test/java/com/orionhealth/shop/pageobject/Shop.java -> Here you need to create or reuse the steps to interact with the page according your scenario. This class has only the responsibility of mapping the fields. (If any question on how to create a correct page object pattern you can go to http://stackoverflow.com/questions/10315894/selenium-webdriver-page-object.)
+   - $ShopStepDefs class =  $root/src/test/java/com/orionhealth/shop/stedefs/ShopStepDefs.java -> Here you need to implement the steps of your scenario.
+
+
+
+If you have to expand creating new assertions, use the structure below:
+   - $ShopStepDefs class =  $root/src/test/java/com/orionhealth/shop/stedefs/ShopStepDefs.java -> Here you need to implement the steps of your scenario and add your assertions.
+
+
+
+If you have to expand creating new feature-files, use the structure below:
+   - $feature-file class= $root/src/test/resources/com/orionhealth/shop/ -> Here you need to create your feature-file.
+To create a new feaure-file you need to do right click on  Shop folder, choose New> File, write your feature name and don't forget to write this exactly  ".feature" in the end of your feature's name. After that, you can save this file. Now you have to write your feature, write a description for your feature and create your scenarios according your necessity. (To learn how to use BDD for writing features and scenarios you can go to https://cucumber.io/training)
+   - $Shop class =  $root/src/test/java/com/orionhealth/shop/pageobject/Shop.java -> Here you need to create or reuse the steps to interact with the page according your scenario. This class has only the responsibility of mapping the fields. (If any question on how to create a correct page object pattern you can go to http://stackoverflow.com/questions/10315894/selenium-webdriver-page-object.)
+   - $ShopStepDefs class =  $root/src/test/java/com/orionhealth/shop/stedefs/ShopStepDefs.java -> Here you need to implement the steps of your scenario.
+
