@@ -4,6 +4,8 @@ public interface Constants {
 
 	String URL = "http://localhost:8080";
 
+	String SYSTEM_PROPERTY_URL = "shop.host";
+
 	String ORDER_NUMBER = "Order #";
 
 	String ITEM_A_XPATH = "/html/body/article/section[2]/form/div[1]/label/input";

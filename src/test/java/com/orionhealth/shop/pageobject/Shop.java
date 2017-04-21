@@ -16,7 +16,7 @@ public class Shop {
 	}
 
 	public void navigateToShop() {
-		driver.navigate().to(System.getProperty("shop.host", Constants.URL));
+		driver.navigate().to(System.getProperty(Constants.SYSTEM_PROPERTY_URL, Constants.URL));
 		WaitUtils.waitUntilShopIsLoaded(driver);
 	}
 
